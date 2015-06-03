@@ -1,4 +1,4 @@
-// trygo/hello/hello.go
+/* github.com/rubicks/trygo/hello/hello.go */
 
 package main
 
