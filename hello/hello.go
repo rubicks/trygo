@@ -4,6 +4,7 @@ package main
 
 import (
 	"fmt"
+	"github.com/rubicks/trygo"
 	"runtime"
 )
 
@@ -14,4 +15,6 @@ func main() {
 	fmt.Println("line : ", line)
 	fmt.Println("ok	 : ", ok)
 	fmt.Println("Hello, Go!")
+	fmt.Printf("stringutil.Reverse(\"race car\") == \"%s\"\n",
+		stringutil.Reverse("race car"))
 }
