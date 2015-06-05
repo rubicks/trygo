@@ -69,7 +69,18 @@ Vagrant.configure(2) do |config|
   #   sudo apt-get install -y apache2
   # SHELL
 
-  config.vm.provision "shell", inline: "sudo apt-get -yy update"
-  config.vm.provision "shell", inline: "sudo apt-get -yy dist-upgrade"
-  
+  config.vm.provision "shell", inline: <<-SHELL
+    echo -n                              >  /etc/profile.d/gopath.sh
+    echo 'export GOPATH=$HOME/go'        >> /etc/profile.d/gopath.sh
+    echo 'export PATH=$PATH:$GOPATH/bin' >> /etc/profile.d/gopath.sh
+  SHELL
+
+  config.vm.provision "shell", inline: <<-SHELL
+    sudo apt-get -yy update
+    sudo apt-get -yy dist-upgrade
+    sudo apt-get -yy install golang
+    sudo apt-get -yy install git
+    sudo apt-get -yy install tree
+  SHELL
+
 end
