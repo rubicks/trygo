@@ -1,4 +1,4 @@
-/* ~/go/src/github.com/rubicks/trygo/stringutil.go */
+/* github.com/rubicks/trygo/stringutil/reverse_test.go */
 
 package stringutil
 
