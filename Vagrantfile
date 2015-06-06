@@ -83,4 +83,11 @@ Vagrant.configure(2) do |config|
     sudo apt-get -yy install tree
   SHELL
 
+  config.vm.provision "shell", inline: <<-SHELL
+    curl -o google-cloud-sdk.tar.gz \
+      https://dl.google.com/dl/cloudsdk/release/google-cloud-sdk.tar.gz
+    tar vxzf google-cloud-sdk.tar.gz
+    CLOUDSDK_CORE_DISABLE_PROMPTS=1 sudo google-cloud-sdk/install.sh
+  SHELL
+
 end
