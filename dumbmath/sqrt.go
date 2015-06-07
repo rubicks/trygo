@@ -4,7 +4,6 @@
 package dumbmath
 
 import (
-	"fmt"
 	"math"
 )
 
@@ -34,7 +33,6 @@ func improve(guess, x float64) float64 {
 // Sqrt returns the square root of its argument, calculated via Newton's method
 // to an accuracy of 0.001
 func Sqrt(x float64) float64 {
-	fmt.Printf("Sqrt(%v)\n", x)
 	guess := 1.0
 	for ; !good_enough(guess, x); guess = improve(guess, x) {
 	}
