@@ -12,17 +12,23 @@ func TestExpmod(t *testing.T) {
 		in   bem
 		want int
 	}{
+		// prime powers of two
 		{bem{2, 2, 100}, 4},
 		{bem{2, 3, 100}, 8},
 		{bem{2, 5, 100}, 32},
 		{bem{2, 7, 100}, 28},
 		{bem{2, 11, 100}, 48},
 		{bem{2, 13, 100}, 92},
+		// carmichael
+		{bem{3, 560, 561}, 375},
+		{bem{11, 560, 561}, 154},
+		{bem{17, 560, 561}, 34},
 	}
 	for _, c := range cases {
 		got := Expmod(c.in[0], c.in[1], c.in[2])
 		if got != c.want {
-			t.Errorf("Expmod(2,%#v,100) == %#v, want %#v", c.in, got, c.want)
+			t.Errorf("Expmod(%#v, %#v, %#v) == %#v, want %#v",
+				c.in[0], c.in[1], c.in[2], got, c.want)
 		}
 	}
 
