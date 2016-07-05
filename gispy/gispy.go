@@ -18,7 +18,7 @@ func main() {
 	for {
 		text, err := rl.Readline()
 		if nil != err {
-			break
+			log.Fatal(err)
 		}
 		println(text)
 	}
