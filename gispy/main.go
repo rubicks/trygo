@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"log"
 
@@ -20,6 +21,13 @@ func main() {
 		if nil != err {
 			log.Fatal(err)
 		}
-		println(text)
+		fmt.Printf("text == %v\n", text)
+		lexed := Lex("<repl>", text)
+		fmt.Printf("lexed == %+v\n", lexed)
+		foobar, err := json.MarshalIndent(lexed, "", "  ")
+		if nil != err {
+			log.Fatal(err)
+		}
+		fmt.Println(string(foobar))
 	}
 }
