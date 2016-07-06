@@ -7,7 +7,9 @@ import (
 )
 
 func TestLeap(t *testing.T) {
-	if isleap(1700) {
-		t.Fatalf("isleap(1700) == %v", true)
-	}
+	assert := assert.New(t)
+	assert.False(isleap(1700))
+	assert.False(isleap(1800))
+	assert.False(isleap(1900))
+	assert.True(isleap(2000))
 }
